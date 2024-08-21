@@ -13,6 +13,8 @@
  *  - Returns <figure> element to where function is called
  */
 
+
+
 const frogpack = {
   name: "Frog Backpack",
   volume: 8,
@@ -24,6 +26,8 @@ const frogpack = {
   },
   lidOpen: false,
   image: "../../assets/images/frog.svg",
+  description:
+    "A green kids backpack designed to make the lid look like the face of a frog sticking out its tongue.",
   toggleLid: function (lidStatus) {
     this.lidOpen = lidStatus;
   },
@@ -57,3 +61,25 @@ const content = `
       }</span></li>
     </ul>  
 `;
+
+
+const HelperImage = (obj) => {
+  let newFigure = document.createElement("figure");
+  let newImg = document.createElement("img")
+  newImg.setAttribute("src", obj.image);
+  newImg.setAttribute("alt", "");
+  let newFigcaption = document.createElement("figcaption");
+  newFigcaption.innerText = obj.description
+  newFigure.append(newImg, newFigcaption)
+  return newFigure
+}
+
+const MainFunction = (obj) => {
+  let newArticle = document.createElement("article");
+  newArticle.innerHTML = content;
+  newArticle.prepend(HelperImage(obj))
+}
+
+const main = document.querySelector('main')
+
+main.appendChild(MainFunction(frogpack))

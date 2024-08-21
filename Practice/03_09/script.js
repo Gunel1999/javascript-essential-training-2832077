@@ -23,4 +23,23 @@ const backpack = {
     this.strapLength.left = lengthLeft;
     this.strapLength.right = lengthRight;
   },
+  changeName: function (newName) {
+    this.name = newName;
+  },
+  changeVolume: function (newVolume) {
+    this.volume = newVolume;
+  },
+  changeColor: function (newColor) {
+    this.color = newColor;
+  },
+  changePocketNums: function (newNum) {
+    this.pocketNum = newNum;
+  },
 };
+
+console.log("Initial name:", backpack.name);
+backpack.changeName("Lenovo-pack");
+console.log("New name:", backpack.name);
+console.log("Initial color:", backpack.color);
+backpack.changeColor("black");
+console.log("New color:", backpack.color);
