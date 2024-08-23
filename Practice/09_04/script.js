@@ -5,3 +5,49 @@
  * - Add an event listener to each grid cell to change its background color when it is clicked.
  * - Add an event listener to a specific key on the keyboard to change the background color of the whole page - from dark to light and back again.
  */
+
+const gridContainer = document.querySelector('.grid');
+const cells = document.querySelectorAll('.cell');
+
+
+const randColor = () => {
+    let hexColor = Math.floor(Math.random() * 16777215).toString(16);
+    return hexColor;
+  };
+
+gridContainer.addEventListener('mouseenter', () => {
+  gridContainer.style.outline = '2px solid purple';
+})
+
+
+gridContainer.addEventListener('mouseleave', () => {
+  gridContainer.style.outline = 'white';
+})
+
+cells.forEach((cell) => {
+    cell.addEventListener('mouseenter', () => {
+        cell.style.outline = '2px solid pink';
+    })
+
+    cell.addEventListener('mouseleave', () => {
+        cell.style.outline = 'white';
+    })
+
+    cell.addEventListener('click', () => {
+        cell.style.backgroundColor = `#${randColor()}`;
+    })
+})
+
+document.addEventListener('keydown', (event) => {
+    if (event.code === 'KeyG') {
+        document.body.style.backgroundColor = 'green';
+    } else if (event.code === 'KeyY') {
+        document.body.style.backgroundColor = 'yellow';
+    } else if (event.code === 'KeyR') {
+        document.body.style.backgroundColor = 'red';
+    } else if (event.code === 'KeyB') {
+        document.body.style.backgroundColor = 'black';
+    } else if (event.code === 'KeyW') {
+        document.body.style.backgroundColor = 'white';
+    }
+})
